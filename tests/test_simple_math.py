@@ -1,7 +1,6 @@
 import unittest
 from cicdtest.Class.SimpleMath import SimpleMath
 
-
 class TestSimpleMath(unittest.TestCase):
 
     def test_addition_true(self) -> None:
