@@ -11,4 +11,4 @@ WORKDIR /app
 COPY --from=builder /usr/local /usr/local
 COPY src ./src
 COPY . .
-CMD ["poetry","run", "-m","unittest"]
+CMD ["poetry","run","unittest"]
