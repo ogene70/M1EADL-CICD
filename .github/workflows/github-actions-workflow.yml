@@ -29,10 +29,10 @@ jobs:
         run: docker --version
 
       - name: Build the image
-        run: docker build -t pythonCiCd -f Dockerfile .
+        run: docker build -t pythoncicd -f Dockerfile .
 
       - name: List Docker images 
         run: docker image ls
 
       - name: Containerise the app
-        run: docker run --name pythonTestContainer pythonCiCd
+        run: docker run --name pythonTestContainer pythoncicd
