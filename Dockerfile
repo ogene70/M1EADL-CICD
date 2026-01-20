@@ -2,9 +2,10 @@ FROM python:3-alpine
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY poetry.lock ./
+COPY pyproject.toml ./
+RUN poetry install 
 
 CMD [ "poetry","run python -m unittest" ]
 
-RUN poetry run cicdtest
+RUN poetry run app
