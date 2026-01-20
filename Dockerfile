@@ -8,7 +8,8 @@ WORKDIR /usr/src/app
 RUN pip install --no-cache-dir poetry
 
 COPY pyproject.toml poetry.lock ./
-RUN poetry install --no-root
+COPY src ./src
+RUN poetry install
 
 COPY . .
 
@@ -23,8 +24,8 @@ FROM python:3.14-slim AS runtime
 WORKDIR /usr/src/app
 
 RUN pip install --no-cache-dir poetry
-
-COPY pyproject.toml poetry.lock ./ 
+COPY pyproject.toml poetry.lock ./
+COPY src ./src
 RUN poetry install
 COPY . .
 
