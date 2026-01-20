@@ -7,4 +7,3 @@ COPY pyproject.toml ./
 
 CMD [ "poetry","run python -m unittest" ]
 
-RUN poetry run app
