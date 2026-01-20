@@ -10,8 +10,8 @@ RUN pip install --no-cache-dir poetry
 COPY pyproject.toml poetry.lock ./
 COPY src ./src
 COPY . .
-RUN ls
-ENTRYPOINT ["poetry", "run", "python", "-m", "unittest"]
+
+CMD ["poetry", "run", "python", "-m", "unittest"]
 
 
 # --------------------
