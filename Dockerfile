@@ -1,7 +1,7 @@
 # --------------------
 # Stage 1: Tests
 # --------------------
-FROM python:3.12-slim AS test
+FROM python:3.14-slim AS test
 
 WORKDIR /usr/src/app
 
@@ -18,7 +18,7 @@ ENTRYPOINT ["poetry", "run", "python", "-m", "unittest"]
 # --------------------
 # Stage 2: Runtime
 # --------------------
-FROM python:3.12-slim AS runtime
+FROM python:3.14-slim AS runtime
 
 WORKDIR /usr/src/app
 
