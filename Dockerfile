@@ -24,8 +24,7 @@ WORKDIR /usr/src/app
 
 RUN pip install --no-cache-dir poetry
 
-COPY pyproject.toml poetry.lock ./
-RUN poetry install 
+COPY pyproject.toml poetry.lock ./ 
 
 COPY . .
 
