@@ -27,5 +27,6 @@ RUN pip install --no-cache-dir poetry
 COPY pyproject.toml poetry.lock ./ 
 
 COPY . .
+CMD [ "ls" ]
 
-CMD ["poetry", "run", "python", "-m", "cicdtest"]
+# CMD ["poetry", "run", "python", "-m", "cicdtest"]
