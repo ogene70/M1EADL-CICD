@@ -22,9 +22,6 @@ jobs:
       - name: Pip install pylint
         run : poetry add --group dev pylint
 
-      - name: Poetry verify pylint install
-        run :  pylint --version
-
       - name: Install dependencies
         run: poetry install
 
