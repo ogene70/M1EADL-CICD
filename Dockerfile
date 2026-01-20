@@ -1,30 +1,14 @@
-# --------------------
-# Stage 1: Tests
-# --------------------
-FROM python:3.14-slim AS test
-
-WORKDIR /usr/src/app
-
-RUN pip install --no-cache-dir poetry
-
+# Build stage
+FROM python:3.12-slim AS builder
+RUN pip install poetry
+WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 COPY src ./src
-COPY . .
+RUN poetry install --only main
 
-CMD ["poetry", "run", "python", "-m", "unittest"]
-
-
-# --------------------
-# Stage 2: Runtime
-# --------------------
-# FROM python:3.14-slim AS runtime
-
-# WORKDIR /usr/src/app
-
-# RUN pip install poetry
-# COPY pyproject.toml poetry.lock ./
-# COPY src ./src
-# RUN poetry install
-# COPY . .
-
-# CMD ["poetry", "run", "cicdtest"]
+# Runtime stage
+FROM python:3.12-slim
+WORKDIR /app
+COPY --from=builder /usr/local /usr/local
+COPY src ./src
+CMD ["python", "-m", "cicdtest"]
