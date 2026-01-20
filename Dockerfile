@@ -20,11 +20,12 @@ ENTRYPOINT ["poetry", "run", "python", "-m", "unittest"]
 # --------------------
 FROM python:3.14-slim AS runtime
 
-WORKDIR /
+WORKDIR /usr/src/app
 
 RUN pip install --no-cache-dir poetry
 
-
+COPY pyproject.toml poetry.lock ./ 
+RUN poetry install
 COPY . .
 
 CMD ["poetry", "run", "cicdtest"]
