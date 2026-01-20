@@ -5,5 +5,5 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 COPY src ./src
 COPY . .
-CMD ["poetry show --tree"]
+CMD ["poetry"?"show", "--tree"]
 # CMD ["poetry","run","python","-m","unittest"]
