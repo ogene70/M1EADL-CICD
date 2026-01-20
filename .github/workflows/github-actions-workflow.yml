@@ -1,5 +1,5 @@
-name: Run python unit test
-run-name: ${{ github.actor }} runs unit tests 🚀
+name: Link Dockerise and run unit tests
+run-name: ${{ github.actor }} Dockerise the app 🚀
 
 on: [push]
 
@@ -19,8 +19,29 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
 
+      - name: Poetry install pylint
+        run : poetry install pylint
+
+      - name: Poetry verify pylint install
+        run : poetry install pylint
+
       - name: Install dependencies
         run: poetry install
 
-      - name: Run unit tests
-        run: poetry run python -m unittest
+      - name: poetry run pylint
+        run: poetry run pylint cicdtest
+
+      - name: Install docker
+        run: sudo apt update && sudo apt install -y docker-ce
+
+      - name: Docker version verify
+        run: docker --version
+
+      - name: Build the image
+        run: docker build -t pythonCiCd -f Dockerfile .
+
+      - name: List Docker images 
+        run: docker image ls
+
+      - name: Containerise the app
+        run: docker run --name pythonTestContainer pythonCiCd
