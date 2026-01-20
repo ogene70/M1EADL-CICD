@@ -20,7 +20,7 @@ ENTRYPOINT ["poetry", "run", "python", "-m", "unittest"]
 # --------------------
 FROM python:3.14-slim AS runtime
 
-WORKDIR /usr/src/app
+WORKDIR /
 
 RUN pip install --no-cache-dir poetry
 
