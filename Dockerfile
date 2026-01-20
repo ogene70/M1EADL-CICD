@@ -5,4 +5,5 @@ WORKDIR /app
 COPY pyproject.toml poetry.lock ./
 COPY src ./src
 COPY . .
-CMD ["poetry","run","python","-m","unittest"]
+CMD ["ls"]
+# CMD ["poetry","run","python","-m","unittest"]
