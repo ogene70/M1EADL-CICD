@@ -14,6 +14,7 @@ COPY . .
 
 ENTRYPOINT ["poetry", "run", "python", "-m", "unittest"]
 
+
 # --------------------
 # Stage 2: Runtime
 # --------------------
