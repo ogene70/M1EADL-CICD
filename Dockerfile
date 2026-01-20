@@ -23,7 +23,7 @@ FROM python:3.14-slim AS runtime
 
 WORKDIR /usr/src/app
 
-RUN pip install --no-cache-dir poetry
+RUN pip install poetry
 COPY pyproject.toml poetry.lock ./
 COPY src ./src
 RUN poetry install
