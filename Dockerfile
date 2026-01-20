@@ -12,4 +12,4 @@ WORKDIR /usr/src/app
 RUN pip install --no-cache-dir poetry
 COPY poetry.lock pyproject.toml ./
 COPY . .
-ENTRYPOINT [ "poetry","run", "app" ]
+ENTRYPOINT [ "poetry","run", "cicdtest" ]
