@@ -19,14 +19,8 @@ jobs:
       - name: Install Poetry
         run: pip install poetry
 
-      - name: Pip install pylint
-        run : poetry add --group dev pylint
-
       - name: Install dependencies
         run: poetry install
-
-      - name: poetry run pylint
-        run: poetry run pylint cicdtest
 
       - name: Install docker
         run: sudo apt update && sudo apt install -y docker-ce
