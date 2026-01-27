@@ -36,3 +36,6 @@ jobs:
 
       - name: Containerise the app
         run: docker run --name pythonTestContainer pythoncicd
+
+      - name: Containerise list
+        run: docker ps -a
